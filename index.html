@@ -72,6 +72,7 @@
         .btn { padding: 16px 32px; border-radius: 50px; text-decoration: none; font-size: 0.9rem; font-weight: 600; display: inline-block; cursor: pointer; transition: 0.3s; border: none; text-align:center; position: relative; z-index: 20; }
         .btn-primary { background: var(--baby-blue); color: #fff; box-shadow: 0 4px 15px rgba(137, 207, 240, 0.3); }
         .btn-donate { background: var(--deep-blue); color: #fff; }
+        .btn-partner { background: var(--deep-blue); color: #fff; padding: 10px 25px; border-radius: 8px; font-weight: 600; cursor: pointer; border: none; }
 
         /* V25: FALLING LEAVES SYSTEM (Replacing static tree) */
         .leaf-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; overflow: hidden; }
@@ -196,7 +197,7 @@
             <a href="/thewaymadeknown/resources/visual-guide/">Visual Bible</a>
             <a href="/thewaymadeknown/resources/evidence/">Library & Bookstore</a>
             <a href="/thewaymadeknown/blog/">The Proclamation</a>
-            <button onclick="openModal()" class="btn btn-donate" style="padding: 10px 25px; margin-left: 20px;">Donate</button>
+            <button onclick="openModal()" class="btn btn-partner" style="padding: 10px 25px; margin-left: 20px;">Partner With Us</button>
         </div>
     </nav>
 
@@ -206,7 +207,7 @@
         <p>"What therefore you worship as unknown, this I proclaim to you."</p>
         <div style="display:flex; gap:20px; justify-content:center; margin-top:20px;">
             <a href="/thewaymadeknown/resources/visual-guide/" class="btn btn-primary">Explore Visual Bible</a>
-            <button onclick="openModal()" class="btn btn-donate">Support the Foundation</button>
+            <button onclick="openModal()" class="btn btn-partner">Partner With the Mission</button>
         </div>
     </header>
 
@@ -226,10 +227,10 @@
         <div class="modal-content">
             <span onclick="closeModal()" style="position: absolute; top: 20px; right: 20px; cursor: pointer; font-size: 1.5rem; color: #aaa;">&times;</span>
             <h2 style="font-family: 'Playfair Display', serif; color: var(--deep-blue); margin-bottom: 15px;">Support the Mission</h2>
-            <p style="margin-bottom: 30px; font-size: 0.95rem; color: #5D6D7E;">Your contribution directly funds the proclamation of the Gospel and high-fidelity evidence resources.</p>
+            <p style="margin-bottom: 30px; font-size: 0.95rem; color: #5D6D7E;">Your partnership directly funds the proclamation of the Gospel and high-fidelity evidence resources.</p>
             
             <div style="display: block;">
-                <button class="modal-option" onclick="location.href='https://www.paypal.com/donate?business=priscadezigns9%40gmail.com&currency_code=USD&item_name=The+Way+Made+Known+Mission+Fund'">
+                <button class="modal-option" onclick="location.href='https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=priscadezigns9%40gmail.com&item_name=Mission+Partnership&currency_code=USD'">
                     <span>PayPal / Credit Card</span>
                     <i class="fas fa-chevron-right"></i>
                 </button>
