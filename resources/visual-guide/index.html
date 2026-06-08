@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>The Land of the Word | The Way Made Known</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap">
+    <style>
+        :root { --bg: #F8FBFF; --text: #2C3E50; --baby-blue: #89CFF0; --deep-blue: #4682B4; --border: rgba(137, 207, 240, 0.2); }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+        .nav { padding: 25px 6%; display: flex; justify-content: space-between; align-items: center; background: #fff; border-bottom: 1px solid var(--border); }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--deep-blue); text-decoration: none; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 80px 6%; }
+        h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 20px; text-align: center; }
+        .intro { text-align: center; color: #5D6D7E; margin-bottom: 60px; max-width: 700px; margin-left: auto; margin-right: auto; }
+        
+        .visual-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 40px; }
+        .v-card { background: #fff; border-radius: 20px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+        .comparison { display: flex; height: 300px; }
+        .comparison img { width: 50%; height: 100%; object-fit: cover; }
+        .comp-label { display: flex; background: var(--deep-blue); color: #fff; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
+        .comp-label span { width: 50%; text-align: center; padding: 8px; }
+        
+        .v-card-content { padding: 30px; }
+        .v-card h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--deep-blue); margin-bottom: 10px; }
+        .v-card p { font-size: 1rem; color: #666; margin-bottom: 15px; }
+        .modern-name { display: inline-block; padding: 5px 15px; background: #f0f7ff; color: var(--deep-blue); border-radius: 50px; font-size: 0.8rem; font-weight: 700; }
+
+        .download-box { margin-top: 80px; padding: 60px; background: #fff; border: 1px solid var(--border); border-radius: 20px; text-align: center; }
+        .download-box h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 20px; color: var(--deep-blue); }
+        .btn-download { display: inline-block; background: var(--baby-blue); color: #fff; padding: 16px 32px; border-radius: 50px; text-decoration: none; font-weight: 600; margin-top: 20px; box-shadow: 0 4px 15px rgba(137, 207, 240, 0.3); }
+
+        footer { padding: 60px 6%; text-align: center; border-top: 1px solid var(--border); font-size: 0.8rem; color: #888; }
+    </style>
+</head>
+<body>
+    <nav class="nav"><a href="/" class="logo">The Way Made Known</a></nav>
+    <div class="container">
+        <h1>The Land of the Word</h1>
+        <p class="intro">Bridging the gap between the ancient text and the modern world. Explore the real-life places where the Gospel breathed life into human history.</p>
+        
+        <div class="visual-grid">
+            <div class="v-card">
+                <div class="comp-label"><span>Ancient Reality</span><span>Modern Day</span></div>
+                <div class="comparison">
+                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/The_Garden_Tomb_2008.jpg" alt="Ancient View">
+                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Jerusalem_Garden_Tomb_(43300953701).jpg" alt="Modern View">
+                </div>
+                <div class="v-card-content">
+                    <h3>The Empty Tomb</h3>
+                    <p>The threshold where the world was changed. Documentation meets reality in the heart of Jerusalem.</p>
+                    <div class="modern-name">Modern Name: The Garden Tomb (Jerusalem)</div>
+                </div>
+            </div>
+
+            <div class="v-card">
+                <div class="comp-label"><span>Ancient Reality</span><span>Modern Day</span></div>
+                <div class="comparison">
+                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Sea-of-Galilee-1900.jpg" alt="Galilee Ancient">
+                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Sea_of_Galilee_View.jpg" alt="Galilee Modern">
+                </div>
+                <div class="v-card-content">
+                    <h3>The Sea of Galilee</h3>
+                    <p>Where the Savior walked and the disciples were called. A living lake that still speaks today.</p>
+                    <div class="modern-name">Modern Name: Lake Kinneret (Galilee)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="download-box">
+            <h2>Free Digital Bible</h2>
+            <p>Download the full English Standard Version (ESV) to your device and start your analytical journey through the Word.</p>
+            <a href="https://nabataea.net/media/04shop/PDFS/ESV%20Bible.pdf" class="btn-download" target="_blank">Download ESV Bible (PDF)</a>
+        </div>
+    </div>
+    <footer>© 2026 The Way Made Known</footer>
+</body>
+</html>
