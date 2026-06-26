@@ -99,45 +99,40 @@
         .btn-primary { background: var(--baby-blue); color: #fff; box-shadow: 0 4px 15px rgba(137, 207, 240, 0.3); }
         .btn-donate { background: var(--deep-blue); color: #fff; }
 
-        /* V25: FALLING LEAVES SYSTEM (Replacing static tree) */
-        .leaf-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; overflow: hidden; }
-        
-        .falling-leaf {
+        /* Falling Leaves Animation */
+        #leaf-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            overflow: hidden;
+        }
+        .leaf {
             position: absolute;
             top: -50px;
-            fill: none;
-            stroke: var(--baby-blue);
-            stroke-width: 1;
-            opacity: 0.6;
+            font-size: 24px;
+            user-select: none;
             animation: fall linear infinite;
         }
-
         @keyframes fall {
             0% {
                 transform: translateY(0) rotate(0deg) translateX(0);
                 opacity: 0;
             }
             10% {
-                opacity: 0.6;
+                opacity: 1;
             }
             90% {
-                opacity: 0.6;
+                opacity: 1;
             }
             100% {
-                transform: translateY(110vh) rotate(720deg) translateX(100px);
+                transform: translateY(105vh) rotate(360deg) translateX(50px);
                 opacity: 0;
             }
         }
-
-        /* Varying the fall speeds and paths for organic feel */
-        .leaf-1 { left: 10%; width: 20px; animation-duration: 12s; animation-delay: 0s; }
-        .leaf-2 { left: 25%; width: 15px; animation-duration: 15s; animation-delay: 2s; }
-        .leaf-3 { left: 45%; width: 25px; animation-duration: 18s; animation-delay: 5s; }
-        .leaf-4 { left: 65%; width: 18px; animation-duration: 14s; animation-delay: 1s; }
-        .leaf-5 { left: 85%; width: 22px; animation-duration: 16s; animation-delay: 3s; }
-        .leaf-6 { left: 15%; width: 12px; animation-duration: 20s; animation-delay: 8s; }
-        .leaf-7 { left: 55%; width: 20px; animation-duration: 13s; animation-delay: 4s; }
-        .leaf-8 { left: 75%; width: 16px; animation-duration: 17s; animation-delay: 6s; }
 
         .section { padding: 80px 6%; position: relative; z-index: 5; background: #fff; }
         .container { max-width: 1100px; margin: 0 auto; text-align: center; }
@@ -202,17 +197,7 @@
         EMPIRE MANDATE: 10% OF EVERY PURCHASE SUPPORTS <a href="/" style="color:#fff; text-decoration:underline; margin-left: 5px;">THE WAY MADE KNOWN</a> MISSION.
     </div>
 
-    <div class="leaf-container">
-        <!-- SVG Leaves using paths for a high-fidelity "outlined" look -->
-        <svg class="falling-leaf leaf-1" viewBox="0 0 24 24"><path d="M12,2 C12,2 6,8 6,14 C6,17.3 8.7,20 12,20 C15.3,20 18,17.3 18,14 C18,8 12,2 12,2 Z M12,18 C9.8,18 8,16.2 8,14 C8,11 12,6.5 12,6.5 C12,6.5 16,11 16,14 C16,16.2 14.2,18 12,18 Z"/></svg>
-        <svg class="falling-leaf leaf-2" viewBox="0 0 24 24"><path d="M12,2 C12,2 6,8 6,14 C6,17.3 8.7,20 12,20 C15.3,20 18,17.3 18,14 C18,8 12,2 12,2 Z M12,18 C9.8,18 8,16.2 8,14 C8,11 12,6.5 12,6.5 C12,6.5 16,11 16,14 C16,16.2 14.2,18 12,18 Z"/></svg>
-        <svg class="falling-leaf leaf-3" viewBox="0 0 24 24"><path d="M12,2 C12,2 6,8 6,14 C6,17.3 8.7,20 12,20 C15.3,20 18,17.3 18,14 C18,8 12,2 12,2 Z M12,18 C9.8,18 8,16.2 8,14 C8,11 12,6.5 12,6.5 C12,6.5 16,11 16,14 C16,16.2 14.2,18 12,18 Z"/></svg>
-        <svg class="falling-leaf leaf-4" viewBox="0 0 24 24"><path d="M12,2 C12,2 6,8 6,14 C6,17.3 8.7,20 12,20 C15.3,20 18,17.3 18,14 C18,8 12,2 12,2 Z M12,18 C9.8,18 8,16.2 8,14 C8,11 12,6.5 12,6.5 C12,6.5 16,11 16,14 C16,16.2 14.2,18 12,18 Z"/></svg>
-        <svg class="falling-leaf leaf-5" viewBox="0 0 24 24"><path d="M12,2 C12,2 6,8 6,14 C6,17.3 8.7,20 12,20 C15.3,20 18,17.3 18,14 C18,8 12,2 12,2 Z M12,18 C9.8,18 8,16.2 8,14 C8,11 12,6.5 12,6.5 C12,6.5 16,11 16,14 C16,16.2 14.2,18 12,18 Z"/></svg>
-        <svg class="falling-leaf leaf-6" viewBox="0 0 24 24"><path d="M12,2 C12,2 6,8 6,14 C6,17.3 8.7,20 12,20 C15.3,20 18,17.3 18,14 C18,8 12,2 12,2 Z M12,18 C9.8,18 8,16.2 8,14 C8,11 12,6.5 12,6.5 C12,6.5 16,11 16,14 C16,16.2 14.2,18 12,18 Z"/></svg>
-        <svg class="falling-leaf leaf-7" viewBox="0 0 24 24"><path d="M12,2 C12,2 6,8 6,14 C6,17.3 8.7,20 12,20 C15.3,20 18,17.3 18,14 C18,8 12,2 12,2 Z M12,18 C9.8,18 8,16.2 8,14 C8,11 12,6.5 12,6.5 C12,6.5 16,11 16,14 C16,16.2 14.2,18 12,18 Z"/></svg>
-        <svg class="falling-leaf leaf-8" viewBox="0 0 24 24"><path d="M12,2 C12,2 6,8 6,14 C6,17.3 8.7,20 12,20 C15.3,20 18,17.3 18,14 C18,8 12,2 12,2 Z M12,18 C9.8,18 8,16.2 8,14 C8,11 12,6.5 12,6.5 C12,6.5 16,11 16,14 C16,16.2 14.2,18 12,18 Z"/></svg>
-    </div>
+    <div id="leaf-container"></div>
 
     <nav class="nav">
         <a href="/" class="logo">The Way Made Known</a>
@@ -279,6 +264,41 @@
     </div>
 
     <script>
+        // Falling Leaves Generation
+        const leafContainer = document.getElementById('leaf-container');
+        const emojis = ['🍃', '🍂', '🌿'];
+        
+        function createLeaf() {
+            const leaf = document.createElement('div');
+            leaf.className = 'leaf';
+            leaf.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+            
+            const startX = Math.random() * window.innerWidth;
+            const duration = 5 + Math.random() * 10;
+            const size = 15 + Math.random() * 20;
+            const delay = Math.random() * 5;
+            
+            leaf.style.left = startX + 'px';
+            leaf.style.animationDuration = duration + 's';
+            leaf.style.fontSize = size + 'px';
+            leaf.style.animationDelay = delay + 's';
+            
+            leafContainer.appendChild(leaf);
+            
+            // Remove leaf after animation
+            setTimeout(() => {
+                leaf.remove();
+            }, (duration + delay) * 1000);
+        }
+        
+        // Initial leaves
+        for (let i = 0; i < 15; i++) {
+            createLeaf();
+        }
+        
+        // Continuous generation
+        setInterval(createLeaf, 2000);
+
         function openModal() {
             document.getElementById('paymentModal').classList.add('active');
         }
@@ -295,4 +315,3 @@
     </script>
 </body>
 </html>
-
