@@ -2,104 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>The Myth of "Realness" | The Way Made Known</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,700;1,700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <style>
-        :root { 
-            --bg: #FFFFFF; 
-            --accent: #89CFF0; 
-            --text: #333333; 
-            --light-accent: rgba(137, 207, 240, 0.1);
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; position: relative; overflow-x: hidden; line-height: 1.8; }
+        :root { --baby-blue: #89CFF0; --white: #FFFFFF; --text: #1A1A1A; --accent: #4682B4; }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--text); line-height: 1.7; overflow-x: hidden; }
         
         /* Nav Bar */
-        .nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 6%; background: var(--bg); border-bottom: 1px solid var(--light-accent); position: sticky; top: 0; z-index: 1000; }
-        .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--accent); text-decoration: none; font-style: italic; }
-        .nav-links { display: flex; align-items: center; gap: 30px; }
-        .nav-links a { text-decoration: none; color: var(--text); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
-        .btn-donate { background: var(--accent); color: white; padding: 10px 25px; border-radius: 5px; border: none; font-weight: 600; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; text-decoration: none; }
+        .nav { padding: 25px 6%; display: flex; justify-content: space-between; align-items: center; background: var(--white); border-bottom: 1px solid var(--baby-blue); position: sticky; top: 0; z-index: 1000; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--accent); text-decoration: none; font-style: italic; }
         
         /* Article Container */
         .container { max-width: 800px; margin: 0 auto; padding: 80px 6%; position: relative; z-index: 1; }
-        .post-meta { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: #999; margin-bottom: 20px; font-weight: 600; }
-        .post-meta span { color: var(--accent); }
-        
-        h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; line-height: 1.2; margin-bottom: 40px; color: var(--text); }
-        h3 { font-family: 'Playfair Display', serif; font-size: 2rem; margin: 50px 0 25px 0; color: var(--text); }
-        
-        .post-content { font-size: 1.15rem; color: #444; }
+        .post-meta { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 10px; font-weight: 700; }
+        h1 { font-family: 'Playfair Display', serif; font-size: 3.2rem; line-height: 1.2; margin-bottom: 40px; color: var(--text); }
+        h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 40px 0 20px 0; color: var(--text); }
+        .post-content { font-size: 1.2rem; color: #333; font-weight: 400; }
         .post-content p { margin-bottom: 30px; }
-        .post-content strong { color: var(--text); }
+        .quote-box { background: #fdfdfd; padding: 40px; border-radius: 5px; border-left: 6px solid var(--baby-blue); margin: 50px 0; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.4rem; color: var(--text); box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
         
-        .quote-box { 
-            background: white; 
-            padding: 50px; 
-            border-radius: 2px; 
-            border-left: 5px solid var(--accent); 
-            margin: 60px 0; 
-            font-family: 'Playfair Display', serif; 
-            font-style: italic; 
-            font-size: 1.6rem; 
-            color: var(--text); 
-            box-shadow: 0 15px 45px rgba(137, 207, 240, 0.1); 
-            line-height: 1.4;
-        }
-        
-        .strategy-list { list-style: none; margin-top: 40px; }
-        .strategy-list li { margin-bottom: 15px; padding-left: 30px; position: relative; }
-        .strategy-list li::before { content: '—'; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
-
         /* Falling Leaves */
-        #leaf-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: hidden; }
-        .leaf { position: absolute; font-size: 20px; user-select: none; pointer-events: none; animation: fall linear infinite; }
-        @keyframes fall { 
-            0% { transform: translateY(-50px) rotate(0deg); left: var(--start-x); opacity: 0; } 
-            10% { opacity: 0.6; } 
-            90% { opacity: 0.6; } 
-            100% { transform: translateY(105vh) rotate(360deg); left: var(--end-x); opacity: 0; } 
-        }
+        #leaf-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999; overflow: hidden; }
+        .leaf { position: absolute; font-size: 24px; animation: fall linear infinite; }
+        @keyframes fall { 0% { transform: translateY(-50px) rotate(0deg); left: var(--start-x); } 100% { transform: translateY(110vh) rotate(360deg); left: var(--end-x); } }
 
-        footer { padding: 80px 40px; text-align: center; border-top: 1px solid var(--light-accent); background: var(--bg); margin-top: 60px; }
-        footer p { font-size: 0.8rem; letter-spacing: 2px; color: #999; text-transform: uppercase; }
-        
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .nav-links { display: none; }
-            .container { padding-top: 50px; }
-            .quote-box { padding: 30px; font-size: 1.3rem; }
-        }
+        footer { padding: 60px 6%; text-align: center; border-top: 1px solid var(--baby-blue); font-size: 0.8rem; color: #999; letter-spacing: 2px; margin-top: 60px; background: var(--white); }
     </style>
 </head>
 <body>
-    <div id="leaf-container"></div>
-    
-    <nav class="nav">
-        <a href="../../" class="logo">The Way Made Known</a>
-        <div class="nav-links">
-            <a href="../../mission/">The Mission</a>
-            <a href="../../resources/visual-guide/">Visual Bible</a>
-            <a href="../../resources/evidence/">Library & Bookstore</a>
-            <a href="../../blog/">The Proclamation</a>
-            <a href="../../#donate" class="btn-donate">Donate</a>
-        </div>
-    </nav>
-
+    <div id='leaf-container'></div>
+    <nav class="nav"><a href="../../" class="logo">The Way Made Known</a></nav>
     <article class="container">
-        <div class="post-meta">Analytical Faith // <span>June 26, 2026</span></div>
+        <div class="post-meta">Analytical Faith | June 26, 2026</div>
         <h1>The Myth of "Realness": Why High-Fidelity Faith Requires a Higher Standard.</h1>
-        
         <div class="post-content">
             <p>In our modern culture—and especially within the vibrant, often chaotic energy of the Caribbean—we hear the word "Real" used as a badge of honor. People claim to be "real" when they speak their mind without a filter, when they share "bachanal" under the guise of transparency, or when they justify low-level behavior as "just being honest."</p>
 
-            <p>But as we build a vision for a high-fidelity life, we have to ask the ultimate question: <strong>Is the world's version of "realness" actually Godly?</strong></p>
+            <p>But as we build a vision for a high-fidelity life, we have to ask the ultimate question: <strong>Is the world's version of "real" actually Godly?</strong></p>
 
             <h3>The Deception of the "Unfiltered"</h3>
             <p>The world defines being "real" as being raw and unrefined. It suggests that your impulses, your lusts, and your temper are your "truth." If you feel it, you should act on it; otherwise, you’re a hypocrite.</p>
 
-            <p>However, the Bible offers a different perspective. Jeremiah 17:9 reminds us that <em>"The heart is deceitful above all things, and desperately wicked; who can know it?"</em></p>
+            <p>However, the Bible offers a different perspective. Jeremiah 17:9 reminds us that <span style="font-style:italic;">"The heart is deceitful above all things, and desperately wicked; who can know it?"</span></p>
 
             <p>If we are simply "real" to our fallen nature, we aren't being authentic; we are being undisciplined. True "realness" isn't about letting your old nature run wild; it’s about being honest enough to recognize that your natural impulses often lead to a "Low-Level" reality that steals your peace and destroys your vision.</p>
 
@@ -108,7 +54,7 @@
             </div>
 
             <h3>High-Fidelity Realness: Truth in the Inward Parts</h3>
-            <p>In Psalm 51:6, David writes, <em>"Behold, You desire truth in the inward parts."</em></p>
+            <p>In Psalm 51:6, David writes, <span style="font-style:italic;">"Behold, You desire truth in the inward parts."</span></p>
 
             <p>Godly realness is not a performance for the public; it is an audit of the soul before the Creator. It is the refusal to live a double-minded life. While the world uses "realness" as an excuse for stagnancy ("this is just how I am"), Biblical realness is a catalyst for <strong>Growth.</strong></p>
 
@@ -117,7 +63,7 @@
             <h3>The "Low-Level" Trap</h3>
             <p>We often see "realness" used to justify promiscuity, gossip, or toxic conflict. This is a trap designed to keep you from your "High-Value" identity. When someone says, "I’m just being real" to justify being rude or "slutty," they are confusing <strong>Honesty with Holiness.</strong></p>
 
-            <p>Just because you are honest about an action doesn't make that action right. Biblical realness is about <strong>Light.</strong> Ephesians 5:13 tells us that <em>"all things that are reproved are made manifest by the light."</em> If your "realness" leads you into darkness or drains your peace, it isn't from God.</p>
+            <p>Just because you are honest about an action doesn't make that action right. Biblical realness is about <strong>Light.</strong> Ephesians 5:13 tells us that <span style="font-style:italic;">"all things that are reproved are made manifest by the light."</span> If your "realness" leads you into darkness or drains your peace, it isn't from God.</p>
 
             <h3>The Standard of Christ</h3>
             <p>Christ was the most "real" person to ever walk the earth. He didn't have to engage in low-level behavior to "relate" to us. He was transparent, vulnerable, and direct, but He was also 100% disciplined and focused on His mission.</p>
@@ -125,19 +71,16 @@
             <p>He didn't come to our level to stay there with us; He came to our level to pull us up to His.</p>
 
             <h3>Final Strategy</h3>
-            <ul class="strategy-list">
-                <li><strong>If it doesn't lead to growth, it isn't real.</strong></li>
-                <li><strong>If it doesn't align with the Word, it isn't truth.</strong></li>
-                <li><strong>If it steals your peace, it isn't Godly.</strong></li>
-            </ul>
+            <p>As you navigate your professional shifts, your business architecture, and your relationships, don't be fooled by the world's label of "real."</p>
 
-            <p style="margin-top: 40px;">Be a Lamborghini in a world of spectators. Stay in the lab, stay in the Word, and maintain a high-fidelity spirit. True realness isn't found in your impulses—it’s found in your <strong>Integrity.</strong></p>
+            <p>- <strong>If it doesn't lead to growth, it isn't real.</strong><br>
+            - <strong>If it doesn't align with the Word, it isn't truth.</strong><br>
+            - <strong>If it steals your peace, it isn't Godly.</strong></p>
+
+            <p>Be a Lamborghini in a world of spectators. Stay in the lab, stay in the Word, and maintain a high-fidelity spirit. True realness isn't found in your impulses—it’s found in your <strong>Integrity.</strong></p>
         </div>
     </article>
-
-    <footer>
-        <p>© 2026 THE WAY MADE KNOWN // PRISCA DEZIGNS // ANCHORED IN SAN FERNANDO</p>
-    </footer>
+    <footer>© 2026 THE WAY MADE KNOWN // PRISCA DEZIGNS // ANCHORED IN SAN FERNANDO</footer>
 
     <script>
         function createLeaf() {
@@ -145,24 +88,19 @@
             if (!container) return;
             const leaf = document.createElement('div');
             leaf.className = 'leaf';
-            const leaves = ['🍃', '🍂', '🌿'];
-            leaf.innerText = leaves[Math.floor(Math.random() * leaves.length)];
-            
+            const icons = ['🍃', '🍂', '🌿'];
+            leaf.innerText = icons[Math.floor(Math.random() * icons.length)];
             const startX = Math.random() * 100 + '%';
             const endX = (Math.random() * 100 - 10) + '%';
             const duration = Math.random() * 5 + 10;
-            const size = Math.random() * 10 + 15;
-            
             leaf.style.setProperty('--start-x', startX);
             leaf.style.setProperty('--end-x', endX);
-            leaf.style.fontSize = size + 'px';
             leaf.style.animationDuration = duration + 's';
-            
+            leaf.style.left = startX;
             container.appendChild(leaf);
             setTimeout(() => leaf.remove(), duration * 1000);
         }
-        setInterval(createLeaf, 800);
-        for(let i=0; i<10; i++) setTimeout(createLeaf, Math.random() * 5000);
+        setInterval(createLeaf, 500);
     </script>
 </body>
 </html>
