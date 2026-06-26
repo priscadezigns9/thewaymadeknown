@@ -9,11 +9,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap">
     <style>
         :root { 
-            --bg: #FFFFF0; /* Ivory */
-            --text: #2C3E50; 
-            --accent: #FF6B00; /* Gold/Orange */
-            --border: rgba(255, 107, 0, 0.1); 
-            --nav-bg: #FFFFFF;
+            --bg: #FFFFFF;
+            --text: #002D62; /* Deep Blue */
+            --accent: #005BB7; /* Professional Blue */
+            --silver: #E5E4E2;
+            --border: rgba(0, 45, 98, 0.1); 
+            --nav-bg: #002D62;
+            --nav-text: #FFFFFF;
         }
         * { margin:0; padding:0; box-sizing:border-box; }
         body { 
@@ -22,17 +24,17 @@
             color: var(--text); 
             line-height: 1.7; 
             overflow-x: hidden; 
-            padding-top: 96px; /* 32 + 64 */
+            padding-top: 96px; 
         }
         
         #empire-mandate {
-            background: #000;
-            color: #FF6B00;
+            background: #001F3F;
+            color: #FFFFFF;
             padding: 0;
             text-align: center;
             font-size: 11px;
             letter-spacing: 1.5px;
-            border-bottom: 1px solid rgba(255,107,0,0.3);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
             z-index: 10001;
             position: fixed;
             top: 0;
@@ -58,53 +60,72 @@
             left: 0; 
             width: 100%;
             z-index: 10000; 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.02); 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
             height: 64px;
         }
 
-        .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: #2C3E50; text-decoration: none; }
-        .nav-links a { margin-left: 25px; text-decoration: none; color: var(--text); font-size: 0.9rem; font-weight: 500; transition: 0.3s; }
-        .nav-links a:hover { color: var(--accent); }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--nav-text); text-decoration: none; }
+        .nav-links a { margin-left: 25px; text-decoration: none; color: var(--nav-text); font-size: 0.9rem; font-weight: 500; transition: 0.3s; opacity: 0.8; }
+        .nav-links a:hover { opacity: 1; color: var(--silver); }
         
         .btn-donate { 
-            background: #2C3E50; 
-            color: #fff; 
-            padding: 10px 25px; 
+            background: #FFFFFF; 
+            color: var(--nav-bg); 
+            padding: 8px 20px; 
             border-radius: 50px; 
             text-decoration: none; 
-            font-size: 0.9rem; 
+            font-size: 0.85rem; 
             font-weight: 600; 
             margin-left: 20px; 
             border: none;
             cursor: pointer;
             transition: 0.3s;
         }
-        .btn-donate:hover { background: var(--accent); }
+        .btn-donate:hover { background: var(--silver); transform: scale(1.05); }
 
         /* Animation: Falling Leaves */
-        .leaf-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; overflow: hidden; }
-        .falling-leaf {
+        #leaf-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+        .leaf {
             position: absolute;
             top: -50px;
-            fill: none;
-            stroke: var(--accent);
-            stroke-width: 1;
-            opacity: 0.4;
-            animation: fall linear infinite;
+            font-size: 24px;
+            user-select: none;
+            animation-name: fall;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
         }
         @keyframes fall {
-            0% { transform: translateY(0) rotate(0deg) translateX(0); opacity: 0; }
-            10% { opacity: 0.4; }
-            90% { opacity: 0.4; }
-            100% { transform: translateY(110vh) rotate(720deg) translateX(100px); opacity: 0; }
+            0% {
+                transform: translateY(0) rotate(0deg) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(110vh) rotate(720deg) translateX(100px);
+                opacity: 0;
+            }
         }
 
         main { position: relative; z-index: 5; max-width: 800px; margin: 0 auto; padding: 60px 20px; }
-        h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 40px; text-align: center; color: #2C3E50; }
+        h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 40px; text-align: center; color: var(--text); }
 
         .blog-grid { display: grid; gap: 40px; }
         .blog-card { 
-            background: #fff; 
+            background: #FFFFFF; 
             padding: 40px; 
             border-radius: 20px; 
             border: 1px solid var(--border);
@@ -112,29 +133,23 @@
             text-decoration: none;
             color: inherit;
             display: block;
+            box-shadow: 0 4px 15px rgba(0,45,98,0.05);
         }
         .blog-card:hover { 
             transform: translateY(-10px); 
-            box-shadow: 0 20px 40px rgba(255, 107, 0, 0.05);
+            box-shadow: 0 20px 40px rgba(0, 45, 98, 0.1);
             border-color: var(--accent);
         }
-        .blog-card h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 15px; color: #2C3E50; }
-        .blog-card p { color: #5D6D7E; margin-bottom: 20px; font-size: 1.05rem; }
+        .blog-card h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 15px; color: var(--text); }
+        .blog-card p { color: #555; margin-bottom: 20px; font-size: 1.05rem; }
         .read-more { font-weight: 700; color: var(--accent); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
 
-        footer { padding: 80px 6%; text-align: center; border-top: 1px solid var(--border); margin-top: 60px; }
-        footer p { font-size: 0.9rem; color: #5D6D7E; }
+        footer { padding: 80px 6%; text-align: center; border-top: 1px solid var(--border); margin-top: 60px; background: #F8FAFC; }
+        footer p { font-size: 0.9rem; color: #64748B; }
         
         .social-links { margin-top: 20px; }
-        .social-links a { margin: 0 15px; color: var(--text); text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
-        .social-links a:hover { color: var(--accent); }
-
-        /* Leaf delay classes */
-        .leaf-1 { left: 10%; width: 20px; animation-duration: 12s; animation-delay: 0s; }
-        .leaf-2 { left: 25%; width: 15px; animation-duration: 15s; animation-delay: 2s; }
-        .leaf-3 { left: 45%; width: 25px; animation-duration: 18s; animation-delay: 5s; }
-        .leaf-4 { left: 65%; width: 18px; animation-duration: 14s; animation-delay: 1s; }
-        .leaf-5 { left: 85%; width: 22px; animation-duration: 16s; animation-delay: 3s; }
+        .social-links a { margin: 0 15px; color: var(--text); text-decoration: none; font-size: 0.9rem; transition: 0.3s; opacity: 0.7; }
+        .social-links a:hover { opacity: 1; color: var(--accent); }
 
         @media (max-width: 600px) {
             h1 { font-size: 2.2rem; }
@@ -145,16 +160,10 @@
 </head>
 <body>
     <div id="empire-mandate">
-        EMPIRE MANDATE: 10% OF EVERY PURCHASE SUPPORTS <a href="/" style="color:#FF6B00; text-decoration:underline; margin-left: 5px;">THE WAY MADE KNOWN</a> MISSION.
+        EMPIRE MANDATE: 10% OF EVERY PURCHASE SUPPORTS <a href="/" style="color:#FFFFFF; text-decoration:underline; margin-left: 5px;">THE WAY MADE KNOWN</a> MISSION.
     </div>
 
-    <div class="leaf-container">
-        <svg class="falling-leaf leaf-1" viewBox="0 0 24 24"><path d="M12,2 C12,2 6,8 6,14 C6,17.3 8.7,20 12,20 C15.3,20 18,17.3 18,14 C18,8 12,2 12,2 Z M12,18 C9.8,18 8,16.2 8,14 C8,11 12,6.5 12,6.5 C12,6.5 16,11 16,14 C16,16.2 14.2,18 12,18 Z"/></svg>
-        <svg class="falling-leaf leaf-2" viewBox="0 0 24 24"><path d="M12,2 C12,2 6,8 6,14 C6,17.3 8.7,20 12,20 C15.3,20 18,17.3 18,14 C18,8 12,2 12,2 Z M12,18 C9.8,18 8,16.2 8,14 C8,11 12,6.5 12,6.5 C12,6.5 16,11 16,14 C16,16.2 14.2,18 12,18 Z"/></svg>
-        <svg class="falling-leaf leaf-3" viewBox="0 0 24 24"><path d="M12,2 C12,2 6,8 6,14 C6,17.3 8.7,20 12,20 C15.3,20 18,17.3 18,14 C18,8 12,2 12,2 Z M12,18 C9.8,18 8,16.2 8,14 C8,11 12,6.5 12,6.5 C12,6.5 16,11 16,14 C16,16.2 14.2,18 12,18 Z"/></svg>
-        <svg class="falling-leaf leaf-4" viewBox="0 0 24 24"><path d="M12,2 C12,2 6,8 6,14 C6,17.3 8.7,20 12,20 C15.3,20 18,17.3 18,14 C18,8 12,2 12,2 Z M12,18 C9.8,18 8,16.2 8,14 C8,11 12,6.5 12,6.5 C12,6.5 16,11 16,14 C16,16.2 14.2,18 12,18 Z"/></svg>
-        <svg class="falling-leaf leaf-5" viewBox="0 0 24 24"><path d="M12,2 C12,2 6,8 6,14 C6,17.3 8.7,20 12,20 C15.3,20 18,17.3 18,14 C18,8 12,2 12,2 Z M12,18 C9.8,18 8,16.2 8,14 C8,11 12,6.5 12,6.5 C12,6.5 16,11 16,14 C16,16.2 14.2,18 12,18 Z"/></svg>
-    </div>
+    <div id="leaf-container"></div>
 
     <nav class="nav">
         <a href="/" class="logo">The Way Made Known</a>
@@ -204,5 +213,40 @@
             <a href="https://www.threads.net/@priscillanarine" target="_blank">Threads</a>
         </div>
     </footer>
+
+    <script>
+        function createLeaf() {
+            const container = document.getElementById('leaf-container');
+            const leaves = ['🍃', '🍂', '🌿'];
+            const leaf = document.createElement('div');
+            leaf.className = 'leaf';
+            leaf.innerText = leaves[Math.floor(Math.random() * leaves.length)];
+            
+            const startX = Math.random() * window.innerWidth;
+            const duration = 10 + Math.random() * 10;
+            const delay = Math.random() * 5;
+            const size = 15 + Math.random() * 15;
+
+            leaf.style.left = startX + 'px';
+            leaf.style.fontSize = size + 'px';
+            leaf.style.animationDuration = duration + 's';
+            leaf.style.animationDelay = delay + 's';
+
+            container.appendChild(leaf);
+
+            // Remove leaf after animation ends to keep DOM clean
+            setTimeout(() => {
+                leaf.remove();
+            }, (duration + delay) * 1000);
+        }
+
+        // Initialize leaves
+        for (let i = 0; i < 15; i++) {
+            createLeaf();
+        }
+
+        // Periodically add new leaves
+        setInterval(createLeaf, 2000);
+    </script>
 </body>
 </html>
