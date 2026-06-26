@@ -3,243 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Intelligence | The Way Made Known</title>
-    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/priscadezigns9/priscion/main/assets/priscion_logo.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,900&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>The Proclamation | The Way Made Known</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,700;1,700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg: #FFFFF0; /* Ivory */
-            --text: #000000;
-            --accent: #7B35D4;
-            --sky-deep: #FDFCF0;
-            --font-heading: 'Playfair Display', serif;
-            --font-body: 'Inter', sans-serif;
-        }
-
+        :root { --ivory: #FFFFF0; --gold: #FF6B00; --text: #1A1A1A; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { 
-            font-family: var(--font-body); 
-            background: var(--bg); 
-            color: var(--text); 
-            line-height: 1.5; 
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .grain {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url("https://grainy-gradients.vercel.app/noise.svg");
-            opacity: 0.05; pointer-events: none; z-index: 50; brightness: 0.5;
-        }
-
-        .sky-canvas {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 50%, var(--sky-deep) 0%, var(--bg) 100%);
-            z-index: -2;
-        }
-
-        #leaf-container {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none; z-index: 1;
-        }
-
-        header {
-            padding: 40px; position: fixed; width: 100%; top: 0; left: 0;
-            display: flex; justify-content: space-between; z-index: 1000;
-        }
-        .logo img { height: 18px; cursor: pointer; }
-
-        main {
-            position: relative; z-index: 10;
-            max-width: 1000px; margin: 0 auto; padding: 150px 40px;
-        }
-
-        h1 {
-            font-family: var(--font-heading);
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 900;
-            letter-spacing: -0.04em;
-            line-height: 0.9;
-            margin-bottom: 60px;
-        }
-
-        .post-list { border-top: 2px solid #000; }
-        .post-item {
-            padding: 40px 0; border-bottom: 2px solid #000;
-            display: block; text-decoration: none; color: inherit;
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        .post-item:hover { color: var(--accent); padding-left: 20px; }
+        body { background: var(--ivory); color: var(--text); font-family: 'Inter', sans-serif; position: relative; overflow-x: hidden; }
         
-        .post-meta { font-size: 12px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.3em; opacity: 0.4; margin-bottom: 10px; }
-        .post-title { font-family: var(--font-heading); font-size: 2.5rem; font-weight: 900; letter-spacing: -0.04em; line-height: 1; margin-bottom: 15px; }
-        .post-summary { font-size: 16px; opacity: 0.7; margin-bottom: 20px; max-width: 700px; }
-        .read-more { font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: 0.2em; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+        /* Nav Bar */
+        .nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 6%; background: white; border-bottom: 1px solid #EEE; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--text); text-decoration: none; font-style: italic; }
+        .nav-links { display: flex; align-items: center; gap: 30px; }
+        .nav-links a { text-decoration: none; color: var(--text); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .btn-donate { background: var(--gold); color: white; padding: 10px 25px; border-radius: 5px; border: none; font-weight: 600; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; text-decoration: none; }
+        
+        /* Header */
+        header { padding: 100px 40px; text-align: center; }
+        h1 { font-family: 'Playfair Display', serif; font-size: 4rem; margin: 0; color: var(--text); }
+        .subtitle { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 5px; color: var(--gold); margin-top: 10px; font-weight: 600; }
 
-        footer { padding: 100px 40px; border-top: 2px solid #000; display: flex; justify-content: space-between; font-size: 14px; font-weight: 900; letter-spacing: 0.1em; }
+        /* Blog Container */
+        .container { max-width: 900px; margin: 0 auto; padding: 60px 20px; position: relative; z-index: 1; }
+        .blog-card { background: white; padding: 50px; border-radius: 2px; margin-bottom: 40px; box-shadow: 0 15px 40px rgba(0,0,0,0.03); border-left: 4px solid var(--gold); transition: 0.3s; }
+        .blog-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0,0,0,0.06); }
+        .blog-card .meta { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: #999; margin-bottom: 15px; }
+        .blog-card h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin: 0 0 20px; line-height: 1.2; }
+        .blog-card p { font-size: 1.1rem; line-height: 1.8; color: #444; margin-bottom: 30px; }
+        .blog-card .read-link { color: var(--gold); text-decoration: none; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem; border-bottom: 1px solid var(--gold); padding-bottom: 5px; transition: 0.3s; display: inline-block; }
+        .blog-card .read-link:hover { padding-right: 10px; border-bottom-width: 2px; }
 
-        .back-nav { margin-bottom: 40px; }
-        .back-nav a { text-decoration: none; color: #000; font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: 0.2em; }
+        /* Falling Leaves */
+        #leaf-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: hidden; }
+        .leaf { position: absolute; width: 15px; height: 15px; background-color: var(--gold); opacity: 0.3; border-radius: 2px 10px 2px 10px; animation: fall linear infinite; }
+        @keyframes fall { 0% { transform: translateY(-20px) rotate(0deg); left: var(--start-x); } 100% { transform: translateY(100vh) rotate(360deg); left: var(--end-x); } }
 
-        @media (max-width: 600px) {
-            .post-title { font-size: 1.8rem; }
-            h1 { font-size: 2.5rem; }
+        footer { padding: 80px 40px; text-align: center; border-top: 1px solid #EEE; background: white; margin-top: 60px; }
+        footer p { font-size: 0.8rem; letter-spacing: 2px; color: #999; }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2.8rem; }
+            .nav-links { display: none; }
+            .blog-card { padding: 30px; }
+            .blog-card h2 { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
-    <div class="grain"></div>
-    <div class="sky-canvas"></div>
     <div id="leaf-container"></div>
-    <header>
-        <div class="logo">
-            <a href="../"><img src="https://raw.githubusercontent.com/priscadezigns9/priscion/main/assets/priscion_logo.png" alt="Prisca Dezigns"></a>
+    
+    <nav class="nav">
+        <a href="/" class="logo">The Way Made Known</a>
+        <div class="nav-links">
+            <a href="/mission/">The Mission</a>
+            <a href="/resources/visual-guide/">Visual Bible</a>
+            <a href="/resources/evidence/">Library & Bookstore</a>
+            <a href="/blog/">The Proclamation</a>
+            <a href="/#donate" class="btn-donate">Donate</a>
         </div>
-        <div style="font-weight:900; font-size:14px; letter-spacing: 0.3em; text-transform: uppercase;">Intelligence Feed</div>
+    </nav>
+
+    <header>
+        <div class="subtitle">Intelligence & Faith</div>
+        <h1>The Proclamation</h1>
     </header>
-    <main>
-        <div class="back-nav"><a href="../">← Return</a></div>
-        <h1>the sovereign<br>intelligence.</h1>
-        <div class="post-list">
-            <article>
-                <a href="the-heartbeat-of-the-empire/index.html" class="post-item">
-                    <div class="post-meta">2026 // ARCHIVE</div>
-                    <div class="post-title">The Heartbeat of the Empire | The Way Made Known Blog</div>
-                    <div class="post-summary">Prisca Dezigns was never meant to be just a business...</div>
-                    <span class="read-more">Read More</span>
-                </a>
-            </article>
-            <article>
-                <a href="mustard-seed-to-tree/index.html" class="post-item">
-                    <div class="post-meta">2026 // ARCHIVE</div>
-                    <div class="post-title">From a Mustard Seed to a Mustard Tree | The Way Made Known</div>
-                    <div class="post-summary">Growing up, we always heard Jesus speak about the mustard seed...</div>
-                    <span class="read-more">Read More</span>
-                </a>
-            </article>
-            <article>
-                <a href="walking-in-eden-now/index.html" class="post-item">
-                    <div class="post-meta">2026 // ARCHIVE</div>
-                    <div class="post-title">Walking in Eden Now | The Way Made Known</div>
-                    <div class="post-summary">During prayer, I had a revelation that I believe many of us can relate to...</div>
-                    <span class="read-more">Read More</span>
-                </a>
-            </article>
-            <article>
-                <a href="testimony/index.html" class="post-item">
-                    <div class="post-meta">2026 // ARCHIVE</div>
-                    <div class="post-title">The Proclamation | The Way Made Known</div>
-                    <div class="post-summary">I grew up in church, but I did not grow up in Christ...</div>
-                    <span class="read-more">Read More</span>
-                </a>
-            </article>
-            <article>
-                <a href="analytical-thinking/index.html" class="post-item">
-                    <div class="post-meta">2026 // ARCHIVE</div>
-                    <div class="post-title">The Analytical Mind | The Way Made Known</div>
-                    <div class="post-summary">Growing up, discussing religion was often taboo...</div>
-                    <span class="read-more">Read More</span>
-                </a>
-            </article>
-            <article>
-                <a href="the-great-migration-architecting-the-sovereign-ledger.html" class="post-item">
-                    <div class="post-meta">2026 // ARCHIVE</div>
-                    <div class="post-title">The Great Migration | Intelligence</div>
-                    <div class="post-summary">The digital world is at a breaking point...</div>
-                    <span class="read-more">Read More</span>
-                </a>
-            </article>
-            <article>
-                <a href="meet-mimi-the-otaku-sage.html" class="post-item">
-                    <div class="post-meta">2026 // ARCHIVE</div>
-                    <div class="post-title">MEET MIMI: THE GUARDIAN OF THE VAULT | Dreaming Anime</div>
-                    <div class="post-summary">Mimi is more than a mascot; she is the soul of Dreaming Anime...</div>
-                    <span class="read-more">Read More</span>
-                </a>
-            </article>
-            <article>
-                <a href="jiraya-sfc-statue-spotlight.html" class="post-item">
-                    <div class="post-meta">2026 // ARCHIVE</div>
-                    <div class="post-title">THE SAGE RETURNS: JIRAYA SFC STATUE ANALYSIS | Dreaming Anime</div>
-                    <div class="post-summary">In the world of Naruto collectibles, presence is everything...</div>
-                    <span class="read-more">Read More</span>
-                </a>
-            </article>
-            <article>
-                <a href="solo-leveling-season-2-hype.html" class="post-item">
-                    <div class="post-meta">2026 // ARCHIVE</div>
-                    <div class="post-title">SOLO LEVELING SEASON 2: ARISE FROM THE SHADOWS | Dreaming Anime</div>
-                    <div class="post-summary">The shadows are lengthening. Solo Leveling Season 2: Arise from the Shadows...</div>
-                    <span class="read-more">Read More</span>
-                </a>
-            </article>
-            <article>
-                <a href="agentic-orchestration.html" class="post-item">
-                    <div class="post-meta">2026 // ARCHIVE</div>
-                    <div class="post-title">Agentic Orchestration | Intelligence | Prisca Dezigns</div>
-                    <div class="post-summary">The role of the digital agency is evolving...</div>
-                    <span class="read-more">Read More</span>
-                </a>
-            </article>
-            <article>
-                <a href="neural-login.html" class="post-item">
-                    <div class="post-meta">2026 // ARCHIVE</div>
-                    <div class="post-title">Neural Login | Intelligence | Prisca Dezigns</div>
-                    <div class="post-summary">Authentication is the gateway to the digital world...</div>
-                    <span class="read-more">Read More</span>
-                </a>
-            </article>
-            <article>
-                <a href="re-zero-season-4-2026-hype.html" class="post-item">
-                    <div class="post-meta">2026 // ARCHIVE</div>
-                    <div class="post-title">RE:ZERO SEASON 4: THE WHITE FOX AWAKENS | Dreaming Anime</div>
-                    <div class="post-summary">White Fox has finally broken the silence...</div>
-                    <span class="read-more">Read More</span>
-                </a>
-            </article>
-            <article>
-                <a href="great-migration.html" class="post-item">
-                    <div class="post-meta">2026 // ARCHIVE</div>
-                    <div class="post-title">The Great Migration | Intelligence | Prisca Dezigns</div>
-                    <div class="post-summary">The digital landscape is at a critical juncture...</div>
-                    <span class="read-more">Read More</span>
-                </a>
-            </article>
-            <article>
-                <a href="naruto-gama-chan-mug-review.html" class="post-item">
-                    <div class="post-meta">2026 // ARCHIVE</div>
-                    <div class="post-title">NINJA ESSENTIALS: THE GAMA CHAN 3D MUG | Dreaming Anime</div>
-                    <div class="post-summary">Morning preparation is key to success...</div>
-                    <span class="read-more">Read More</span>
-                </a>
-            </article></div>
-    </main>
+
+    <div class="container">
+        <!-- Article 1: Featured -->
+        <article class="blog-card">
+            <div class="meta">June 26, 2026 // Historical Intelligence</div>
+            <h2>Analytical Faith: Evidence for Biblical Narratives and Archaeological Stewardship in 2026</h2>
+            <p>Faith is not the absence of evidence; it is the response to it. Exploring how modern archaeological science provides a robust, evidence-based defense of biblical narratives through high-fidelity signals.</p>
+            <a href="analytical-faith-biblical-archaeology-2026/index.html" class="read-link">Read Intelligence Report &rarr;</a>
+        </article>
+
+        <!-- Article 2 -->
+        <article class="blog-card">
+            <div class="meta">May 31, 2026 // Revelations</div>
+            <h2>Walking in Eden Now.</h2>
+            <p>Through Christ Jesus, the victory has been won and paradise has been restored here and now. We are not just waiting for Eden; through the blood of Jesus, we are walking in it now.</p>
+            <a href="walking-in-eden-now/index.html" class="read-link">Read Intelligence Report &rarr;</a>
+        </article>
+
+        <!-- Article 3 -->
+        <article class="blog-card">
+            <div class="meta">May 29, 2026 // Visions & Dreams</div>
+            <h2>From a Mustard Seed to a Mustard Tree.</h2>
+            <p>A mustard seed was never meant to stay a seed. It was meant to grow into a huge tree. It is time for every Christian to move from seed to tree, taking the cap off their faith.</p>
+            <a href="mustard-seed-to-tree/index.html" class="read-link">Read Intelligence Report &rarr;</a>
+        </article>
+
+        <!-- Article 4 -->
+        <article class="blog-card">
+            <div class="meta">May 29, 2026 // My Testimony</div>
+            <h2>When Scales Fall from the Eyes.</h2>
+            <p>I grew up in church, but I did not grow up in Christ. In 2015, while in university, everything changed when I decided to read the Word and scales fell from my eyes.</p>
+            <a href="testimony/index.html" class="read-link">Read Intelligence Report &rarr;</a>
+        </article>
+
+        <!-- Article 5 -->
+        <article class="blog-card">
+            <div class="meta">May 29, 2026 // Visions & Dreams</div>
+            <h2>Analytical Thinking in a World of Emotion.</h2>
+            <p>God is a reasonable God. He doesn't ask us to abandon our minds; He invites us to use them to weigh the evidence and find the Truth that withstands research.</p>
+            <a href="analytical-thinking/index.html" class="read-link">Read Intelligence Report &rarr;</a>
+        </article>
+
+        <!-- Article 6 -->
+        <article class="blog-card">
+            <div class="meta">May 29, 2026 // Visions & Dreams</div>
+            <h2>The Heartbeat of the Empire</h2>
+            <p>Prisca Dezigns was never meant to be just a business. Every project is fueled by a deeper purpose—a foundation of grace that gives meaning to excellence and tech mastery.</p>
+            <a href="the-heartbeat-of-the-empire/index.html" class="read-link">Read Intelligence Report &rarr;</a>
+        </article>
+    </div>
+
     <footer>
-        <div>THE WAY MADE KNOWN // INTELLIGENCE</div>
-        <div>NETWORK &copy; 2026</div>
+        <p>© 2026 THE WAY MADE KNOWN // PRISCA DEZIGNS // ANCHORED IN SAN FERNANDO</p>
     </footer>
+
     <script>
-        const leafContainer = document.getElementById('leaf-container');
-        const leafEmojis = ['🍃', '🍂', '🌿', '✨'];
         function createLeaf() {
+            const container = document.getElementById('leaf-container');
+            if (!container) return;
             const leaf = document.createElement('div');
-            leaf.style.position = 'absolute';
-            leaf.style.top = '-50px';
-            leaf.style.left = Math.random() * 100 + 'vw';
-            leaf.style.fontSize = (Math.random() * 20 + 10) + 'px';
-            leaf.style.opacity = Math.random() * 0.5 + 0.2;
-            leaf.style.pointerEvents = 'none';
-            leaf.innerHTML = leafEmojis[Math.floor(Math.random() * leafEmojis.length)];
-            leafContainer.appendChild(leaf);
-            const duration = Math.random() * 10 + 5;
-            const horizontalMotion = (Math.random() - 0.5) * 200;
-            leaf.animate([
-                { transform: 'translate(0, 0) rotate(0deg)', opacity: 1 },
-                { transform: `translate(${horizontalMotion}px, 110vh) rotate(${Math.random() * 360}deg)`, opacity: 0 }
-            ], { duration: duration * 1000, easing: 'linear' }).onfinish = () => leaf.remove();
+            leaf.className = 'leaf';
+            const startX = Math.random() * 100 + '%';
+            const endX = (Math.random() * 100 - 10) + '%';
+            const duration = Math.random() * 5 + 10;
+            const size = Math.random() * 10 + 5;
+            leaf.style.setProperty('--start-x', startX);
+            leaf.style.setProperty('--end-x', endX);
+            leaf.style.width = size + 'px';
+            leaf.style.height = size + 'px';
+            leaf.style.animationDuration = duration + 's';
+            leaf.style.opacity = Math.random() * 0.3 + 0.1;
+            container.appendChild(leaf);
+            setTimeout(() => leaf.remove(), duration * 1000);
         }
-        setInterval(createLeaf, 300);
+        setInterval(createLeaf, 600);
     </script>
 </body>
 </html>
