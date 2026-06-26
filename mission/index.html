@@ -1,1 +1,111 @@
-<html></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>The Mission | The Way Made Known</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap">
+    <style>
+        :root { --bg: #F8FBFF; --text: #2C3E50; --baby-blue: #89CFF0; --deep-blue: #4682B4; --border: rgba(137, 207, 240, 0.2); }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; overflow-x: hidden; }
+        .nav { padding: 25px 6%; display: flex; justify-content: space-between; align-items: center; background: #fff; border-bottom: 1px solid var(--border); position: relative; z-index: 1000; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--deep-blue); text-decoration: none; }
+        .container { max-width: 900px; margin: 0 auto; padding: 80px 6%; position: relative; z-index: 5; }
+        h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 30px; text-align: center; color: var(--deep-blue); }
+        .mission-content { font-size: 1.2rem; font-weight: 300; color: #34495E; }
+        .mission-content h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--deep-blue); margin: 50px 0 20px; }
+        .mission-content p { margin-bottom: 30px; }
+        .quote { padding: 40px; border-left: 5px solid var(--baby-blue); background: #fff; margin: 50px 0; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.4rem; color: var(--deep-blue); }
+
+        /* FALLING LEAVES ANIMATION */
+        #leaf-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+        .leaf {
+            position: absolute;
+            top: -50px;
+            font-size: 24px;
+            user-select: none;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotate(720deg) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        footer { padding: 60px 6%; text-align: center; border-top: 1px solid var(--border); font-size: 0.8rem; color: #888; position: relative; z-index: 10; background: #fff; }
+    </style>
+</head>
+<body>
+    <div id="leaf-container"></div>
+    <nav class="nav"><a href="/" class="logo">The Way Made Known</a></nav>
+    <div class="container">
+        <h1>The Mission</h1>
+        <div class="mission-content">
+            <p>Our mission is anchored in <strong>Acts 17:23</strong>: "What therefore you worship as unknown, this I proclaim to you." We exist to bridge the gap between the seeker and the Savior through analytical faith, historical documentation, and active service.</p>
+            <div class="quote">"We don't put God in a box. We don't give Him definition based on our limitations. We let Him tell us who He is: The Alpha and Omega, the I AM THAT I AM."</div>
+            <h2>Global Proclamation</h2>
+            <p>Empowering ministries with high-fidelity tools to ensure the message of Christ is heard with excellence.</p>
+            <h2>Education & Hope</h2>
+            <p>Breaking the cycle of lack through digital literacy and planting seeds of limitless potential in impoverished communities.</p>
+        </div>
+    </div>
+    <footer>© 2026 The Way Made Known</footer>
+
+    <script>
+        const leafContainer = document.getElementById('leaf-container');
+        const leafEmojis = ['🍃', '🍂', '🌿'];
+        
+        function createLeaf() {
+            const leaf = document.createElement('div');
+            leaf.className = 'leaf';
+            leaf.textContent = leafEmojis[Math.floor(Math.random() * leafEmojis.length)];
+            
+            // Random properties
+            const startX = Math.random() * 100; // 0-100vw
+            const duration = 5 + Math.random() * 10; // 5-15s
+            const size = 15 + Math.random() * 20; // 15-35px
+            const delay = Math.random() * 5; // 0-5s
+            
+            leaf.style.left = startX + 'vw';
+            leaf.style.fontSize = size + 'px';
+            leaf.style.animationDuration = duration + 's';
+            leaf.style.animationDelay = delay + 's';
+            
+            leafContainer.appendChild(leaf);
+            
+            // Remove leaf after animation ends
+            setTimeout(() => {
+                leaf.remove();
+            }, (duration + delay) * 1000);
+        }
+
+        // Initial burst
+        for (let i = 0; i < 15; i++) {
+            createLeaf();
+        }
+
+        // Continuous generation
+        setInterval(createLeaf, 600);
+    </script>
+</body>
+</html>
