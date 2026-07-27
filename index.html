@@ -154,6 +154,35 @@
             background: rgba(137, 207, 240, 0.05);
             transform: scale(1.02);
         }
+            /* Mobile Responsiveness Fixes */
+        @media (max-width: 768px) {
+            .nav { padding: 10px 4%; height: auto; flex-wrap: wrap; }
+            .nav-links { 
+                display: none; 
+                width: 100%; 
+                flex-direction: column; 
+                padding: 20px 0; 
+                text-align: center;
+                background: #fff;
+                border-top: 1px solid var(--border);
+            }
+            .nav-links.active { display: flex; }
+            .nav-links a { margin: 15px 0; font-size: 1.1rem; }
+            .nav-links .btn-donate { margin: 15px 0 0 0 !important; width: 100%; }
+            
+            .hero { padding: 60px 4% 80px; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1rem; }
+            .hero div[style*="display:flex"] { flex-direction: column; gap: 15px !important; }
+            .hero .btn { width: 100%; }
+
+            .hamburger { display: block; cursor: pointer; font-size: 1.5rem; color: var(--deep-blue); }
+            
+            #empire-mandate { font-size: 9px; height: auto; padding: 5px; line-height: 1.4; }
+            body { padding-top: 110px; }
+        }
+        @media (min-width: 769px) { .hamburger { display: none; } }
+
     </style>
 <style>.dropdown:hover .dropdown-content { display: block !important; } .nav-link:hover { color: var(--deep-blue) !important; }</style>
     <style>
@@ -169,7 +198,7 @@
     </div>
 
     <nav class="nav">
-        <a href="/" class="logo">The Way Made Known</a>
+        <a href="/" class="logo">The Way Made Known</a><div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
         <div class="nav-links">
         
             <a href="/mission/">The Mission</a>
@@ -267,5 +296,7 @@
         }
         setInterval(createLeaf, 500);
     </script>
+
+    <script>function toggleMenu() { document.querySelector(".nav-links").classList.toggle("active"); const icon = document.querySelector(".hamburger i"); icon.classList.toggle("fa-bars"); icon.classList.toggle("fa-times"); }</script>
 </body>
 </html>
