@@ -224,7 +224,7 @@
     <div id="pd-chat-window">
         <div class="chat-hdr">
             <div class="chat-avatar">
-                <img src="https://raw.githubusercontent.com/priscadezigns9/priscadezignswebsite/main/logos/PRISCA_ICON_LOGO_tight.png" alt="P">
+                <img src="https://raw.githubusercontent.com/priscadezigns9/thewaymadeknown/main/assets/twmk_tree_logo.png" alt="TWMK">
             </div>
             <div style="flex:1">
                 <div class="chat-hdr-name">Sierra</div>
@@ -245,14 +245,14 @@
         <div id="agent-selector">
             <div class="sel-title">Who would you like to speak with?</div>
             <div class="agent-sel-card" onclick="selectAgent('sierra')">
-                <img src="https://raw.githubusercontent.com/priscadezigns9/priscadezignswebsite/main/assets/sierra_headshot.jpg" alt="Sierra" onerror="this.src='https://raw.githubusercontent.com/priscadezigns9/priscadezignswebsite/main/logos/PRISCA_ICON_LOGO_tight.png'">
+                <img src="https://raw.githubusercontent.com/priscadezigns9/priscadezignswebsite/main/assets/sierra_headshot.jpg" alt="Sierra" onerror="this.src='https://raw.githubusercontent.com/priscadezigns9/thewaymadeknown/main/assets/twmk_tree_logo.png'">
                 <div>
                     <div class="asc-name">Sierra</div>
                     <div class="asc-role">Customer Relations — Chat</div>
                 </div>
             </div>
             <div class="agent-sel-card" onclick="selectAgent('drew')">
-                <img src="https://raw.githubusercontent.com/priscadezigns9/priscadezignswebsite/main/assets/drew_headshot.jpg" alt="Drew" onerror="this.src='https://raw.githubusercontent.com/priscadezigns9/priscadezignswebsite/main/logos/PRISCA_ICON_LOGO_tight.png'">
+                <img src="https://raw.githubusercontent.com/priscadezigns9/priscadezignswebsite/main/assets/drew_headshot.jpg" alt="Drew" onerror="this.src='https://raw.githubusercontent.com/priscadezigns9/thewaymadeknown/main/assets/twmk_tree_logo.png'">
                 <div>
                     <div class="asc-name">Drew</div>
                     <div class="asc-role">Sales Representative — Voice</div>
@@ -261,7 +261,7 @@
         </div>
         <!-- Drew Vapi Voice Panel -->
         <div id="drew-panel">
-            <img src="https://raw.githubusercontent.com/priscadezigns9/priscadezignswebsite/main/assets/drew_headshot.jpg" alt="Drew" style="width:72px;height:72px;border-radius:20px;object-fit:cover;box-shadow:0 8px 24px rgba(95,168,211,0.25);" onerror="this.src='https://raw.githubusercontent.com/priscadezigns9/priscadezignswebsite/main/logos/PRISCA_ICON_LOGO_tight.png'">
+            <img src="https://raw.githubusercontent.com/priscadezigns9/priscadezignswebsite/main/assets/drew_headshot.jpg" alt="Drew" style="width:72px;height:72px;border-radius:20px;object-fit:cover;box-shadow:0 8px 24px rgba(95,168,211,0.25);" onerror="this.src='https://raw.githubusercontent.com/priscadezigns9/thewaymadeknown/main/assets/twmk_tree_logo.png'">
             <div style="font-size:1.1rem;font-weight:800;color:#1e1b4b;font-family:'Inter',sans-serif;">Drew</div>
             <div id="drew-soundwave"><span></span><span></span><span></span><span></span><span></span></div>
             <div id="drew-status">Ready to connect</div>
